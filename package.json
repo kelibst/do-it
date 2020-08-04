@@ -1,0 +1,43 @@
+{
+  "name": "ghana-foods",
+  "version": "1.0.0",
+  "description": "Javascript DOM manipulation by dynamically rendering a simple restaurant homepage! By the end, we are going to be using JavaScript alone to generate the entire contents of the website!",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "serve": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelibst/ghana-foods.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "restuarant",
+    "page"
+  ],
+  "author": "kelibst",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kelibst/ghana-foods/issues"
+  },
+  "homepage": "https://github.com/kelibst/ghana-foods#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}
