@@ -1,7 +1,7 @@
 {
-  "name": "ghana-foods",
+  "name": "do-it",
   "version": "1.0.0",
-  "description": "Javascript DOM manipulation by dynamically rendering a simple restaurant homepage! By the end, we are going to be using JavaScript alone to generate the entire contents of the website!",
+  "description": "A basic JavaScript To do app for creating tasks and adding to do's ",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kelibst/ghana-foods.git"
+    "url": "git+https://github.com/kelibst/do-it.git"
   },
   "keywords": [
     "JavaScript",
@@ -19,9 +19,9 @@
   "author": "kelibst",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kelibst/ghana-foods/issues"
+    "url": "https://github.com/kelibst/do-it/issues"
   },
-  "homepage": "https://github.com/kelibst/ghana-foods#readme",
+  "homepage": "https://github.com/kelibst/do-it#readme",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",

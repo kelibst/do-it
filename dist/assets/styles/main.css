@@ -6,7 +6,11 @@
 }
 
 
-
+.addTodoContainer{
+    margin: 4rem;
+    background: white;
+    padding: 3rem;
+}
 
 .user-profile {
     display: flex;
@@ -43,6 +47,23 @@ input.bg-light:focus{
     padding: .5rem;
 }
 
+.all-container {
+    position: fixed;
+    height: 100vh;
+    min-width: 100vw;
+    z-index: 10;
+    top: 0;
+    background: #ff000073;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container {
+    width: 100%;
+}
+
 section.tasks.m-5.p-3 {
     display: flex;
     justify-content: space-evenly;
@@ -64,6 +85,29 @@ section.tasks.m-5.p-3 {
 .delete{
     font-size: 1.4rem;
     cursor: pointer;
+}
+
+
+.taskContainer {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.close-w{
+    padding: .5rem .8rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 10;
+    top: 10;
+    transition: all .3s;
+}
+
+.close-w:hover{
+    background-color: maroon;
+    color: white;
 }
 
 @media only screen and (max-width: 579px){

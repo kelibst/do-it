@@ -10,6 +10,78 @@
 </head>
 
 <body class="bg-light">
+
+<!-- to do and task addition forms -->
+
+    <div class="container-lg all-container d-none">
+        
+        <div class="todo-container d-none">
+            
+            <div class="col-md-8 mx-auto addTodoContainer round1">
+                <div class="fas fa-times close-w"></div>
+                <h4 class="font-weight-bolder text-center text-success text-uppercase my-5">Add a new Todo</h4>
+            <form class="addTodo">
+                <div class="form-group">
+                  <label for="todotitle">Add Todo Title</label>
+                  <input type="text" class="form-control" id="todotitle" placeholder="Add title">
+                </div>
+
+                <div class="form-group">
+                    <label for="tododesc">Add Todo Description</label>
+                    <input type="text" class="form-control" id="tododesc" placeholder="Add Description">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateofbirth">Due Date</label>
+                    <input type="date" name="dateofbirth" id="dateofbirth">
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control form-control">
+                        <option>Low Priority</option>
+                        <option>Medium Priority</option>
+                        <option>High Priority</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Example textarea</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Optional" rows="3"></textarea>
+                </div>
+
+                <div class="form-group mt-3">
+                    <a href="#" class="btn w-100 btn-outline-success">Submit</a>
+                </div>
+
+              </form>
+        </div>
+        </div>
+        
+
+    <div class="taskContainer w-100 d-none">
+        
+        <div class="col-md-8 mx-auto addTodoContainer round1">
+           <div class="fas fa-times close-w"></div>
+            <h4 class="font-weight-bolder text-center text-success text-uppercase my-5">Add a new Task</h4>
+        <form class="addTask">
+            <div class="form-group">
+              <label for="tasktitle">Add Task Title</label>
+              <input type="text" class="form-control" id="tasktitle" placeholder="Add title">
+            </div>
+
+            <div class="form-group mt-3">
+                <a href="#" class="btn w-100 btn-outline-success">Submit</a>
+            </div>
+
+          </form>
+    </div>
+    </div>
+       
+    </div>
+
+
+<!-- to do and task addition form ends here  -->
+
    <header class="header-section">
        <div class="brand m-lg-4 brand-container">
            <h1 class="brand display-6 brand-title font-weight-bolder text-primary">Just Do It Board</h1>
@@ -27,7 +99,7 @@
    <!-- add task button -->
 
    <div class="add-btn text-center">
-        <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add Task</a>
+        <a href="#" class="btn btn-outline-primary addnewTask"><i class="fas fa-plus"></i> Add Task</a>
     </div>
 
    <section class="tasks d-block d-sm-flex justify-content-around m-xl-5 p-3">
@@ -88,7 +160,7 @@
         </div>
         <!-- card ends here -->
         <div class="add-btn text-center">
-            <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
+            <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
         </div>
        </div>
        <!-- tasks end here -->
@@ -143,7 +215,7 @@
             </div>
             <!-- card ends here -->
             <div class="add-btn text-center">
-                <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
+                <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
             </div>
            </div>
            <!-- tasks end here -->
