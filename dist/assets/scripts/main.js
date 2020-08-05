@@ -86,14 +86,39 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/dom.js":
+/*!********************!*\
+  !*** ./src/dom.js ***!
+  \********************/
+/*! exports provided: handleForm, addTask, taskForm, allContainer, addTodo, todoContainer, taskContainer, addTodobtn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"handleForm\", function() { return handleForm; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTask\", function() { return addTask; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"taskForm\", function() { return taskForm; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"allContainer\", function() { return allContainer; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodo\", function() { return addTodo; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"todoContainer\", function() { return todoContainer; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"taskContainer\", function() { return taskContainer; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addTodobtn\", function() { return addTodobtn; });\nvar allContainer = document.querySelector('.all-container');\nvar addTask = document.querySelector('.addnewTask');\nvar addTodo = document.querySelector('.addTodo');\nvar taskForm = document.querySelector('.addTask');\nvar todoContainer = document.querySelector('.todo-container');\nvar addTodobtn = document.querySelector('.addTodobtn');\nvar taskContainer = document.querySelector('.taskContainer'); // display addTask form when it is clicked\n\nfunction handleForm() {\n  return {\n    showForm: function showForm(container) {\n      allContainer.classList.remove('d-none');\n      container.classList.remove('d-none');\n    },\n    closeForm: function closeForm() {\n      allContainer.classList.add('d-none');\n      todoContainer.classList.add('d-none');\n      taskContainer.classList.add('d-none');\n    }\n  };\n}\n\n\n\n//# sourceURL=webpack:///./src/dom.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var allContainer = document.querySelector('.all-container');\nvar addTask = document.querySelector('.addnewTask');\nvar taskForm = document.querySelector('.addTask');\nvar todoContainer = document.querySelector('.todo-container');\nvar addTodobtn = document.querySelector('.addTodobtn');\nvar taskContainer = document.querySelector('.taskContainer'); // display addTask form when it is clicked\n\naddTask.addEventListener('click', function (e) {\n  allContainer.classList.remove('d-none');\n  todoContainer.classList.remove('d-none');\n}); // hide all forms when the container is clicked\n\nallContainer.addEventListener('click', function (e) {\n  if (e.target.classList.contains('close-w')) {\n    allContainer.classList.add('d-none');\n    todoContainer.classList.add('d-none');\n    taskContainer.classList.add('d-none');\n  }\n});\naddTodobtn.addEventListener('click', function () {\n  allContainer.classList.remove('d-none');\n  taskContainer.classList.remove('d-none');\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/dom.js\");\n/* harmony import */ var _tasks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasks */ \"./src/tasks.js\");\n\n\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodobtn\"].addEventListener('click', function (e) {\n  Object(_dom__WEBPACK_IMPORTED_MODULE_0__[\"handleForm\"])().showForm(_dom__WEBPACK_IMPORTED_MODULE_0__[\"todoContainer\"]);\n}); // hide all forms when the container is clicked\n\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"allContainer\"].addEventListener('click', function (e) {\n  if (e.target.classList.contains('close-w')) {\n    Object(_dom__WEBPACK_IMPORTED_MODULE_0__[\"handleForm\"])().closeForm();\n  }\n});\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"addTask\"].addEventListener('click', function () {\n  Object(_dom__WEBPACK_IMPORTED_MODULE_0__[\"handleForm\"])().showForm(_dom__WEBPACK_IMPORTED_MODULE_0__[\"taskContainer\"]);\n});\nvar alltask = [];\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"taskForm\"].taskBtn.addEventListener('click', function (e) {\n  e.preventDefault();\n  var title = _dom__WEBPACK_IMPORTED_MODULE_0__[\"taskForm\"].tasktitle.value;\n  var newTask = new _tasks__WEBPACK_IMPORTED_MODULE_1__[\"Task\"](title);\n  alltask.push(newTask);\n  console.log(alltask[0]);\n});\n_dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].todoBtn.addEventListener('click', function (e) {\n  e.preventDefault();\n  console.log(_dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].todotitle.value, _dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].tododesc.value, _dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].dateofbirth.value, _dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].priority.value, _dom__WEBPACK_IMPORTED_MODULE_0__[\"addTodo\"].note.value);\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/tasks.js":
+/*!**********************!*\
+  !*** ./src/tasks.js ***!
+  \**********************/
+/*! exports provided: Task, Todo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Task\", function() { return Task; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Todo\", function() { return Todo; });\nvar Task = function Task(name) {\n  return {\n    name: name,\n    todos: []\n  };\n};\n\nvar Todo = function Todo(name, description, duedate, priority) {\n  var note = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : \"\";\n  return {\n    name: name,\n    description: description,\n    duedate: duedate,\n    priority: priority\n  };\n};\n\n\n\n//# sourceURL=webpack:///./src/tasks.js?");
 
 /***/ })
 

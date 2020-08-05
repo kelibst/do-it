@@ -1,29 +1,31 @@
-const allContainer = document.querySelector('.all-container');
-const addTask = document.querySelector('.addnewTask');
-const taskForm = document.querySelector('.addTask');
-const todoContainer = document.querySelector('.todo-container');
-const addTodobtn = document.querySelector('.addTodobtn'); 
-const taskContainer = document.querySelector('.taskContainer')
-// display addTask form when it is clicked
+import {handleForm, addTask,addTodo, allContainer,todoContainer, taskContainer, taskForm, addTodobtn} from './dom'
+import {Task} from './tasks'
 
-addTask.addEventListener('click', (e) => {
-    allContainer.classList.remove('d-none');
-   todoContainer.classList.remove('d-none');
+addTodobtn.addEventListener('click', (e) => {
+  handleForm().showForm(todoContainer)
 });
 
 // hide all forms when the container is clicked
 allContainer.addEventListener('click', e => {
 
  if(e.target.classList.contains('close-w')){
-   allContainer.classList.add('d-none');
-   todoContainer.classList.add('d-none');
-   taskContainer.classList.add('d-none')
-   
+  handleForm().closeForm();
  }
 });
 
-addTodobtn.addEventListener('click', () => {
-  allContainer.classList.remove('d-none');
-  taskContainer.classList.remove('d-none')
+addTask.addEventListener('click', () => {
+  handleForm().showForm(taskContainer)
+})
+let alltask =[]
+taskForm.taskBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  let title = taskForm.tasktitle.value;
+  let newTask = new Task(title)
+  alltask.push(newTask)
+  console.log(alltask[0])
 })
 
+addTodo.todoBtn.addEventListener('click', (e)=> {
+  e.preventDefault();
+  console.log(addTodo.todotitle.value, addTodo.tododesc.value, addTodo.dateofbirth.value, addTodo.priority.value, addTodo.note.value)
+})
