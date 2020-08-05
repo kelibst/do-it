@@ -1,0 +1,49 @@
+.brand.m-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+
+.user-profile {
+    display: flex;
+    
+}
+
+.round1{
+    border-radius: 1rem;
+}
+
+i.fas.fa-user {
+    padding: .8rem;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1.4rem;
+}
+
+p.user-name {
+    font-size: 1rem;
+    font-weight: bolder;
+    align-self: center;
+    margin: auto 1rem;
+}
+
+input.bg-light {
+    border: none;
+    padding: 1rem;
+    transition: all .3s;
+}
+input.bg-light:focus{
+    outline: none;
+    background: #e9ecef !important;
+    border-radius: 4rem;
+    padding: .5rem;
+}
+
+section.tasks.m-5.p-3 {
+    display: flex;
+    justify-content: space-evenly;
+}
