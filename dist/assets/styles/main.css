@@ -55,6 +55,17 @@ section.tasks.m-5.p-3 {
 }
 
 
+.card-bins {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 579px){
     .brand-container{
         grid-template-columns: auto;
