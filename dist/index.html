@@ -38,9 +38,9 @@
 
                 <div class="form-group">
                     <select name="priority" class="form-control form-control">
-                        <option>Low Priority</option>
-                        <option>Medium Priority</option>
-                        <option>High Priority</option>
+                        <option id="1">Low Priority</option>
+                        <option id="2" >Medium Priority</option>
+                        <option id="3" >High Priority</option>
                     </select>
                 </div>
                 
@@ -50,7 +50,6 @@
                 </div>
 
                 <div class="form-group mt-3">
-                    
                     <input type="submit" name="todoBtn" class="btn w-100 btn-outline-success">
                 </div>
 
@@ -104,125 +103,22 @@
         <a href="#" class="btn btn-outline-primary addnewTask"><i class="fas fa-plus"></i> Add Task</a>
     </div>
 
-   <section class="tasks d-block d-sm-flex justify-content-around m-xl-5 p-3">
-       <!-- tasks complete mark up -->
-       <div class="card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white">
+   <section id="allTk" class="tasks d-block d-sm-flex justify-content-around m-xl-5 p-3">
+    <div class="card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white">
         <div class="card-bins">
             <h6 class="card-title py-2 text-uppercase text-ligth">Today</h6>
-        <i class="fas fa-trash text-danger delete"></i>
+            <i class="fas fa-trash text-danger delete"></i>
         </div>
-        
-        <!-- cards with new to dos -->
-        <div class="card-body border my-4 round1">
-            <div class="card-bins">
-            <p class="text-success text-uppercase">Low-Priority</p>
-            <i class="fas fa-trash ml-2 text-danger delete"></i>
-            </div>
-            
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            
-        </div>
-        <!-- card ends here -->
-        
-        <!-- cards with new to dos -->
-        <div class="card-body border my-4 round1">
-            <p class="text-success text-uppercase">Low-Priority</p>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-        </div>
-        <!-- card ends here -->
 
-        <!-- cards with new to dos -->
-        <div class="card-body border my-4 round1">
-            <p class="text-success text-uppercase">Low-Priority</p>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
+        <div id="todoTk">
+           
         </div>
-        <!-- card ends here -->
 
-        <!-- cards with new to dos -->
-        <div class="card-body border my-4 round1">
-            <p class="text-success text-uppercase">Low-Priority</p>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-        </div>
-        <!-- card ends here -->
-
-        <!-- cards with new to dos -->
-        <div class="card-body border my-4 round1">
-            <p class="text-success text-uppercase">Low-Priority</p>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-            <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-            <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-        </div>
-        <!-- card ends here -->
         <div class="add-btn text-center">
             <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
         </div>
-       </div>
-       <!-- tasks end here -->
-
-        <!-- tasks complete mark up -->
-        <div class="card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white">
-
-            <h6 class="card-title py-2 text-uppercase text-ligth">Today</h6>
+      </div>
     
-            <!-- cards with new to dos -->
-            <div class="card-body border my-4 round1">
-                <p class="text-success text-uppercase">Low-Priority</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            </div>
-            <!-- card ends here -->
-            
-            <!-- cards with new to dos -->
-            <div class="card-body border my-4 round1">
-                <p class="text-success text-uppercase">Low-Priority</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            </div>
-            <!-- card ends here -->
-    
-            <!-- cards with new to dos -->
-            <div class="card-body border my-4 round1">
-                <p class="text-success text-uppercase">Low-Priority</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            </div>
-            <!-- card ends here -->
-    
-            <!-- cards with new to dos -->
-            <div class="card-body border my-4 round1">
-                <p class="text-success text-uppercase">Low-Priority</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            </div>
-            <!-- card ends here -->
-    
-            <!-- cards with new to dos -->
-            <div class="card-body border my-4 round1">
-                <p class="text-success text-uppercase">Low-Priority</p>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-            </div>
-            <!-- card ends here -->
-            <div class="add-btn text-center">
-                <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
-            </div>
-           </div>
-           <!-- tasks end here -->
-
-       
    </section>
 <footer class="bg-white text-center m-4 shadow round1 py-3">
     Project by: Keli && Lucky &copy; || Design by Designer
