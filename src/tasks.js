@@ -61,7 +61,7 @@ const Task = (name) => ({
                
                 if(node === this.allTk){
                   container.id = ind;
-                  container.classList = `card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white ${ind}`;
+                  container.classList = `card shadow col-sm-6 col-lg-4 dlit  p-3 round1 my-2 border-0 bg-white ${ind}`;
                   container.innerHTML = "";
                   container.innerHTML = Templates(val, ind).taskTemplate;
                 }else{
@@ -71,7 +71,7 @@ const Task = (name) => ({
                   container.innerHTML = Templates(val, ind).todoTemplate;
                 }
                 //clear the container before filling it up
-                
+               
                 node.appendChild(container);
               },
 

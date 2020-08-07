@@ -17,8 +17,6 @@ addTodobtn.addEventListener('click', (e) => {
   
 
   // let's change the default task to the one the user selected.
-
-
   taskId = e.target.offsetParent.id;
   defaultTask = alltask[taskId];
 
@@ -35,12 +33,14 @@ addTodobtn.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   alltask.forEach(function(value,index){
     renderContent().render(renderContent().allTk, value, index);
+
+    value.todos.forEach(function(value, index){
+  
+      renderContent().render(renderContent().todoTk, value, index)
+    })
   });
 
-  defaultTask.todos.forEach(function(value, index){
-  
-    renderContent().render(renderContent().todoTk, value, index)
-  })
+ 
 
 });
 
@@ -65,8 +65,14 @@ taskForm.taskBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let title = taskForm.tasktitle.value;
   let newTask = new Task(title)
-  alltask.push(newTask)
-  alltask.forEach(function(value,index){
+  alltask.push(newTask);
+
+  let latestTask = [] 
+  latestTask.push(alltask.find((value) => {
+    return value == newTask;
+  }))
+
+  latestTask.forEach(function(value,index){
    
     renderContent().render(renderContent().allTk, value, index)
   })
@@ -85,12 +91,16 @@ addTodo.todoBtn.addEventListener('click', (e)=> {
   let priority =  addTodo.priority.value;
   let note = addTodo.note.value;
 
-  console.log(defaultTask)
 
   let setTodo = Todo(name, description, dateofbirth, priority, note);
   defaultTask.todos.push(setTodo)
-  
-  defaultTask.todos.forEach(function(value, index){
+  console.log(defaultTask)
+  let latestTodo = [] 
+  latestTodo.push(defaultTask.todos.find((value) => {
+    return value == setTodo;
+  }))
+
+  latestTodo.forEach(function(value, index){
   
     renderContent().render(todoNode, value, index)
   })

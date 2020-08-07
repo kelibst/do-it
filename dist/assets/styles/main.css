@@ -110,6 +110,8 @@ section.tasks.m-5.p-3 {
     color: white;
 }
 
+
+
 @media only screen and (max-width: 579px){
     .brand-container{
         grid-template-columns: auto;
@@ -133,4 +135,13 @@ section.tasks.m-5.p-3 {
     h1.brand.display-6.brand-title.font-weight-bolder.text-primary {
         margin-top: 2rem;
     }
+    .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .dlit{
+      display: inline-block;
+  }
 }
