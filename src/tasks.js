@@ -13,32 +13,42 @@ const Task = (name) => ({
   });
 
     //set task template
-  let taskTemplate = ` 
+  function Templates (val, ind){
+    return {
+      taskTemplate: ` 
 
-                      <div class="card-bins">
-                          <h6 class="card-title py-2 text-uppercase text-ligth">Today</h6>
-                          <i class="fas fa-trash text-danger delete"></i>
-                      </div>
+                  <div  class="card-bins">
+                    <h6 class="card-title py-2 text-uppercase text-ligth">${val.name}</h6>
+                    <i class="fas fa-trash text-danger delete"></i>
+                  </div>
 
-                      <div id="todoTk">
-           
-                      </div>
+                  <div id="todoTk">
+                  
+                  </div>
 
-                      <div class="add-btn text-center">
-                          <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
-                      </div>
+                  <div class="add-btn text-center">
+                    <a href="#" class="btn addTodobtn btn-outline-primary"><i class="fas fa-plus"></i> Add To do</a>
+                  </div>
 
-                          `
-let todoTemplate = `
-                    <div class="card-bins">
-                    <p class="text-success text-uppercase">Low-Priority</p>
-                    <i class="fas fa-trash ml-2 text-danger delete"></i>
-                    </div>
+                          `,
+                          
+      todoTemplate: `
+                  <div class="card-bins">
+                  <h6 class="card-title py-2 text-uppercase text-ligth">${val.name}</h6>
+                  <p class="text-success text-uppercase">${val.priority}</p>
+                  <i class="fas fa-trash ml-2 text-danger delete"></i>
+                  </div>
 
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla distinctio explicabo voluptate laboriosam pariatur quasi veniam neque eius voluptates.</p>
-                    <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
-                    <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
-                  `
+                  <p class="card-text">${val.description}</p>
+                  <a href="#" class="btn btn-outline-success"><i class="fas fa-check" ></i> Done!</a>
+                  <a href="#" class="btn btn-outline-danger"><i class="fas fa-check" ></i> Not Done!</a>
+                `
+        
+    }
+  }
+
+
+  
 
 //set a function to render all content on the page task or todo                  
           function renderContent(){
@@ -46,15 +56,22 @@ let todoTemplate = `
             return {
              allTk: document.getElementById('allTk'),
              todoTk: document.getElementById('todoTk'),
-              render(template,  node, container = document.createElement('div')) {
+              render(node, val, ind) {
+                let container = document.createElement('div')
+               
                 if(node === this.allTk){
-                  container.classList = "card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white";
+                  container.id = ind;
+                  container.classList = `card shadow col-sm-6 col-lg-4 p-3 round1 border-0 bg-white ${ind}`;
+                  container.innerHTML = "";
+                  container.innerHTML = Templates(val, ind).taskTemplate;
                 }else{
+                  container.id = ind;
                   container.classList = "card-body border my-4 round1";
+                  container.innerText = "";
+                  container.innerHTML = Templates(val, ind).todoTemplate;
                 }
                 //clear the container before filling it up
-                container.innerHTML = "";
-                container.innerHTML = template;
+                
                 node.appendChild(container);
               },
 
@@ -64,4 +81,4 @@ let todoTemplate = `
 
       
 
-export {Task, Todo, renderContent, taskTemplate, todoTemplate}
+export {Task, Todo, renderContent}

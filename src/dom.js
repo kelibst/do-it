@@ -3,8 +3,8 @@ const addTask = document.querySelector('.addnewTask');
 const addTodo = document.querySelector('.addTodo');
 const taskForm = document.querySelector('.addTask');
 const todoContainer = document.querySelector('.todo-container');
-const addTodobtn = document.querySelector('.addTodobtn'); 
-const taskContainer = document.querySelector('.taskContainer')
+const addTodobtn = document.getElementById('allTk');
+const taskContainer = document.querySelector('.taskContainer');
 // display addTask form when it is clicked
 
 
