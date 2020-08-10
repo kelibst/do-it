@@ -19,7 +19,7 @@ const Task = (name) => ({
 
                   <div  class="card-bins">
                     <h6 class="card-title py-2 text-uppercase text-ligth">${val.name}</h6>
-                    <i class="fas fa-trash text-danger delete"></i>
+                    <i class="fas fa-trash text-danger taskDelete delete"></i>
                   </div>
 
                   <div id="todoTk">
@@ -36,7 +36,7 @@ const Task = (name) => ({
                   <div class="card-bins">
                   <h6 class="card-title py-2 text-uppercase text-ligth">${val.name}</h6>
                   <p class="text-success text-uppercase">${val.priority}</p>
-                  <i class="fas fa-trash ml-2 text-danger delete"></i>
+                  <i class="fas fa-trash ml-2 text-danger todoDelete delete"></i>
                   </div>
 
                   <p class="card-text">${val.description}</p>

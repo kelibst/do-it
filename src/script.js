@@ -71,11 +71,22 @@ function loadContents(){
             //select item to delete and remove it from the dom
             if(e.target.classList.contains('delete')){
               
-              console.log(e.target.offsetParent.id, e.target.parentElement.innerHTML)
-              let id = e.target.offsetParent.id;
-              const parent = document.getElementById(id);
-              console.log(parent.innerHTML)
-              //parent.remove()
+             if(e.target.classList.contains('taskDelete')){
+                //filter out task if delete button is pressed
+              alltask = alltask.filter(function(value, index){
+                  
+                return index != e.target.parentElement.id
+              })
+             }else if(e.target.classList.contains('todoDelete')){
+                defaultTask.todos = defaultTask.todos.filter(function(value, index){
+                    return index != e.target.parentElement.id
+                })
+             }
+            
+               e.path[2].remove();
+               console.log("alltask",alltask)
+               console.log("todos", defaultTask.todos)
+            
             }
             
             if(e.target.classList.contains('addTodobtn')){
