@@ -1,3 +1,3 @@
-import loadContents from './script'
+import loadContents from './script';
 
-loadContents().contents()
+loadContents().contents();

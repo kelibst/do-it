@@ -110,7 +110,15 @@ section.tasks.m-5.p-3 {
     color: white;
 }
 
-
+.Low{
+    color: green;
+}
+.Medium{
+    color: greenyellow;
+}
+.High{
+    color: indigo;
+}
 
 @media only screen and (max-width: 579px){
     .brand-container{

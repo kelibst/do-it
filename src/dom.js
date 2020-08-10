@@ -5,23 +5,30 @@ const taskForm = document.querySelector('.addTask');
 const todoContainer = document.querySelector('.todo-container');
 const addTodobtn = document.getElementById('allTk');
 const taskContainer = document.querySelector('.taskContainer');
-// display addTask form when it is clicked
+const searchIcon = document.querySelector('.searchIcon');
 
-
-
-function handleForm(){
+function handleForm() {
   return {
-    showForm(container){
+    showForm(container) {
       allContainer.classList.remove('d-none');
-      container.classList.remove('d-none')
+      container.classList.remove('d-none');
     },
 
-    closeForm(){
+    closeForm() {
       allContainer.classList.add('d-none');
       todoContainer.classList.add('d-none');
-      taskContainer.classList.add('d-none')
-    }
-  }
+      taskContainer.classList.add('d-none');
+    },
+  };
 }
 
-export {handleForm, addTask, taskForm, allContainer, addTodo, todoContainer, taskContainer, addTodobtn}
+export {
+  handleForm, addTask,
+  taskForm,
+  allContainer,
+  addTodo,
+  todoContainer,
+  searchIcon,
+  taskContainer,
+  addTodobtn,
+};

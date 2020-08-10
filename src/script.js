@@ -1,135 +1,138 @@
-import {handleForm, addTask,addTodo, allContainer,todoContainer, taskContainer, taskForm, addTodobtn} from './dom'
-import {Task, Todo, renderContent} from './tasks'
+/* eslint-disable   import/extensions */
+import {
+  handleForm,
+  addTask,
+  addTodo,
+  allContainer,
+  todoContainer,
+  taskContainer,
+  taskForm,
+  addTodobtn,
+  searchIcon,
+} from './dom';
+import { Task, Todo, renderContent } from './tasks';
 
-function loadContents(){
-    return {
-        contents(){
-            let alltask = [];
-            let defaultTask;
-            if (localStorage.length < 1) {
-                
+function loadContents() {
+  return {
+    contents() {
+      let alltask = [];
+      let defaultTask;
 
-                let today = Task("Today");
-                
-                alltask.push(today);
-                defaultTask = alltask[0]
-                //add initial todos
-               
-                defaultTask.todos.push(Todo("Buy milk", 'early in the morning', '11/02/1991','Low Priority'));
-              } else {
-                const storedlist = localStorage.getItem('alltask');
-                alltask = JSON.parse(storedlist);
-              }
+      // search search input when icon is clicked
 
+      searchIcon.addEventListener('click', (e) => {
+        e.target.nextElementSibling.classList.remove('d-none');
+      });
 
-        let todoNode = renderContent().todoTk;
+      if (localStorage.length < 1) {
+        const today = Task('Today');
 
-        //load the initial elements to the dom
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log(alltask)
-            alltask.forEach(function(value,index){
-            renderContent().render(renderContent().allTk, value, index);
+        alltask.push(today);
+        defaultTask = alltask[0];
+        // add initial todos
 
-            value.todos.forEach(function(newvalue, newindex){
-          
-                renderContent().render(document.getElementById(`todoTk${index}`), newvalue, newindex)
-            })
-            });
-        });
+        defaultTask.todos.push(Todo('Buy milk', 'early in the morning', '11/02/1991', 'Low Priority'));
+      } else {
+        const storedlist = localStorage.getItem('alltask');
+        alltask = JSON.parse(storedlist);
+      }
 
-        // handle form events
-        allContainer.addEventListener('click', e => {
+      let todoNode = renderContent().todoTk;
 
-            if(e.target.classList.contains('close-w')){
-            handleForm().closeForm();
-            }
-        });
-        
-        addTask.addEventListener('click', () => {
-            handleForm().showForm(taskContainer)
-        });
+      // load the initial elements to the dom
+      document.addEventListener('DOMContentLoaded', () => {
+        alltask.forEach((value, index) => {
+          renderContent().render(renderContent().allTk, value, index);
 
-        //handle task creation
-
-        //set default task
-        taskForm.taskBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            let title = taskForm.tasktitle.value;
-            let newTask = new Task(title)
-            alltask.push(newTask);
-            localStorage.setItem('alltask', JSON.stringify(alltask));
-            alltask.find((value, index) => {
-               
-            if(value === newTask){
-                renderContent().render(renderContent().allTk, value, index)
-            } ;
-            })
-            
-        
-        })
-
-        addTodobtn.addEventListener('click', (e) => {
- 
-
-            // let's change the default task to the one the user selected.
-            let taskId = e.target.offsetParent.id;
-            console.log(parseInt(taskId[4]))
-            defaultTask = alltask[parseInt(taskId[4])];
-          
-            todoNode = e.target.offsetParent.childNodes[3];
-            
-            //select item to delete and remove it from the dom
-            if(e.target.classList.contains('delete')){
-              
-             if(e.target.classList.contains('taskDelete')){
-                //filter out task if delete button is pressed
-              alltask = alltask.filter(function(value, index){
-                return index != parseInt(e.path[2].id[4])
-              })
-              localStorage.setItem('alltask', JSON.stringify(alltask));  
-              console.log(alltask)
-             }else if(e.target.classList.contains('todoDelete')){
-                defaultTask.todos = defaultTask.todos.filter(function(value, index){
-                    console.log(parseInt(e.path[2].id[4]))
-                    return index != parseInt(e.path[2].id[4])
-                })
-               
-             }
-             localStorage.setItem('alltask', JSON.stringify(alltask));
-             console.log(alltask)
-               e.path[2].remove();
-               
-            }
-            
-            if(e.target.classList.contains('addTodobtn')){
-              handleForm().showForm(todoContainer)
-            }
+          value.todos.forEach((newvalue, newindex) => {
+            renderContent().render(document.getElementById(`todoTk${index}`), newvalue, newindex);
           });
+        });
+      });
 
-          //add task when the button is clicked
-            addTodo.todoBtn.addEventListener('click', (e)=> {
-                e.preventDefault();
-                let name= addTodo.todotitle.value;
-                let description = addTodo.tododesc.value;
-                let dateofbirth = addTodo.dateofbirth.value;
-                let priority =  addTodo.priority.value;
-                let note = addTodo.note.value;
-            
-            
-                console.log(defaultTask)
-                let setTodo = Todo(name, description, dateofbirth, priority, note);
-                defaultTask.todos.push(setTodo)
-                localStorage.setItem('alltask', JSON.stringify(alltask));
-                
-               defaultTask.todos.find((value, index) => {
-                if(value === setTodo){
-                    renderContent().render(todoNode, value, index)
-                } ;
-                });
-                
-            })
+      // handle form events
+      allContainer.addEventListener('click', e => {
+        if (e.target.classList.contains('close-w')) {
+          handleForm().closeForm();
         }
-    }
+      });
+
+      addTask.addEventListener('click', () => {
+        handleForm().showForm(taskContainer);
+      });
+
+      // handle task creation
+
+      // set default task
+      taskForm.taskBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const title = taskForm.tasktitle.value;
+        const newTask = new Task(title);
+        alltask.push(newTask);
+        taskForm.tasktitle.value = '';
+        handleForm().closeForm();
+        localStorage.setItem('alltask', JSON.stringify(alltask));
+        alltask.find((value, index) => {
+          if (value === newTask) {
+            renderContent().render(renderContent().allTk, value, index);
+          }
+        });
+      });
+
+      addTodobtn.addEventListener('click', (e) => {
+        // let's change the default task to the one the user selected.
+        const taskId = e.target.offsetParent.id;
+
+        defaultTask = alltask[parseInt(taskId[4])];
+
+        todoNode = e.target.offsetParent.childNodes[3];
+
+        // select item to delete and remove it from the dom
+        if (e.target.classList.contains('delete')) {
+          if (e.target.classList.contains('taskDelete')) {
+            // filter out task if delete button is pressed
+            alltask = alltask.filter((value, index) => index != parseInt(e.path[2].id[4]));
+            localStorage.setItem('alltask', JSON.stringify(alltask));
+          } else if (e.target.classList.contains('todoDelete')) {
+            defaultTask.todos = defaultTask.todos.filter((value, index) => index != parseInt(e.path[2].id[4]));
+          }
+          localStorage.setItem('alltask', JSON.stringify(alltask));
+
+          e.path[2].remove();
+        }
+
+        if (e.target.classList.contains('addTodobtn')) {
+          handleForm().showForm(todoContainer);
+        }
+      });
+
+      // add task when the button is clicked
+      addTodo.todoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const name = addTodo.todotitle.value;
+        const description = addTodo.tododesc.value;
+        const dateofbirth = addTodo.dateofbirth.value;
+        const priority = addTodo.priority.value;
+        const note = addTodo.note.value;
+
+        const setTodo = Todo(name, description, dateofbirth, priority, note);
+        defaultTask.todos.push(setTodo);
+        localStorage.setItem('alltask', JSON.stringify(alltask));
+
+        addTodo.todotitle.value = '';
+        addTodo.tododesc.value = '';
+        addTodo.dateofbirth.value = '';
+        addTodo.priority.value = '';
+        addTodo.note.value = '';
+        handleForm().closeForm();
+        defaultTask.todos.find((value, index) => {
+          if (value === setTodo) {
+            renderContent().render(todoNode, value, index);
+          }
+        });
+      });
+    },
+  };
 }
 
-export default loadContents
+export default loadContents;
