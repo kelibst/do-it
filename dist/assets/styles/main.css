@@ -1,0 +1,147 @@
+.brand-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.addTodoContainer{
+    margin: 4rem;
+    background: white;
+    padding: 3rem;
+}
+
+.user-profile {
+    display: flex;
+    
+}
+
+.round1{
+    border-radius: 1rem;
+}
+
+i.fas.fa-user {
+    padding: .8rem;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1.4rem;
+}
+
+p.user-name {
+    font-size: 1rem;
+    font-weight: bolder;
+    align-self: center;
+    margin: auto 1rem;
+}
+
+input.bg-light {
+    border: none;
+    padding: 1rem;
+    transition: all .3s;
+}
+input.bg-light:focus{
+    outline: none;
+    background: #e9ecef !important;
+    border-radius: 4rem;
+    padding: .5rem;
+}
+
+.all-container {
+    position: fixed;
+    height: 100vh;
+    min-width: 100vw;
+    z-index: 10;
+    top: 0;
+    background: #ff000073;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container {
+    width: 100%;
+}
+
+section.tasks.m-5.p-3 {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.brand-input {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+
+.card-bins {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+
+.taskContainer {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.close-w{
+    padding: .5rem .8rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    position: absolute;
+    right: 10;
+    top: 10;
+    transition: all .3s;
+}
+
+.close-w:hover{
+    background-color: maroon;
+    color: white;
+}
+
+
+
+@media only screen and (max-width: 579px){
+    .brand-container{
+        grid-template-columns: auto;
+        margin: 2rem 0 1rem 0;
+    }
+    .brand-input {
+        flex-direction: column;
+        margin: 2rem 0;
+    }
+
+    .user-profile {
+        position: absolute;
+        right: 0;
+        top: .5rem;
+    }
+    
+    i.fas.fa-user.bg-primary {
+        font-size: 1.1rem;
+    }
+    
+    h1.brand.display-6.brand-title.font-weight-bolder.text-primary {
+        margin-top: 2rem;
+    }
+    .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .dlit{
+      display: inline-block;
+  }
+}
