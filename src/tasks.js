@@ -60,12 +60,12 @@ const Task = (name) => ({
                 let container = document.createElement('div')
                
                 if(node === this.allTk){
-                  container.id = ind;
+                  container.id = `task${ind}`;
                   container.classList = `card shadow col-sm-6 col-lg-4 dlit  p-3 round1 my-2 border-0 bg-white ${ind}`;
                   container.innerHTML = "";
                   container.innerHTML = Templates(val, ind).taskTemplate;
                 }else{
-                  container.id = ind;
+                  container.id = `todo${ind}`;
                   container.classList = "card-body border my-4 round1";
                   container.innerText = "";
                   container.innerHTML = Templates(val, ind).todoTemplate;
@@ -74,10 +74,6 @@ const Task = (name) => ({
                
                 node.appendChild(container);
               },
-
-              removeContent(id,){
-
-              }
 
 
             }
