@@ -33,7 +33,7 @@ Read more on the project specifications on [Odin](https://www.theodinproject.com
 
 
 # Live Demo
-[Live Demo Link](https://raw.githack.com/kelibst/ghana-foods/working/dist/index.html)
+[Live Demo Link](https://rawcdn.githack.com/kelibst/do-it/59b13239678d32cd6734d9d9a1dea0e23c1c2091/dist/index.html)
 
 # Built With
 
@@ -45,7 +45,7 @@ Read more on the project specifications on [Odin](https://www.theodinproject.com
 
 
 # usage
-visit live [link](https://raw.githack.com/kelibst/ghana-foods/working/dist/index.html) in your browser.
+visit live [link](https://rawcdn.githack.com/kelibst/do-it/59b13239678d32cd6734d9d9a1dea0e23c1c2091/dist/index.html) in your browser.
 
 
 

@@ -1,4 +1,4 @@
-/* eslint-disable   import/extensions */
+/* eslint-disable   array-callback-return */
 import {
   handleForm,
   addTask,
@@ -28,7 +28,7 @@ function loadContents() {
         const today = Task('Today');
 
         alltask.push(today);
-        defaultTask = alltask[0];
+        ([defaultTask] = alltask);
         // add initial todos
 
         defaultTask.todos.push(Todo('Buy milk', 'early in the morning', '11/02/1991', 'Low Priority'));
@@ -83,18 +83,19 @@ function loadContents() {
         // let's change the default task to the one the user selected.
         const taskId = e.target.offsetParent.id;
 
-        defaultTask = alltask[parseInt(taskId[4])];
+        defaultTask = alltask[parseInt(taskId[4], 10)];
 
-        todoNode = e.target.offsetParent.childNodes[3];
+        [, , , todoNode] = e.target.offsetParent.childNodes;
 
         // select item to delete and remove it from the dom
         if (e.target.classList.contains('delete')) {
           if (e.target.classList.contains('taskDelete')) {
             // filter out task if delete button is pressed
-            alltask = alltask.filter((value, index) => index != parseInt(e.path[2].id[4]));
+            alltask = alltask.filter((value, index) => index !== parseInt(e.path[2].id[4], 10));
             localStorage.setItem('alltask', JSON.stringify(alltask));
           } else if (e.target.classList.contains('todoDelete')) {
-            defaultTask.todos = defaultTask.todos.filter((value, index) => index != parseInt(e.path[2].id[4]));
+            const iid = parseInt(e.path[2].id[4], 10);
+            defaultTask.todos = defaultTask.todos.filter((value, index) => index !== iid);
           }
           localStorage.setItem('alltask', JSON.stringify(alltask));
 
