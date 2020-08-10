@@ -14,14 +14,19 @@ defaultTask.todos.push(Todo("Buy milk", 'early in the morning', '11/02/1991','Lo
 //load task and todos when the page loads 
 
 addTodobtn.addEventListener('click', (e) => {
-  
+ 
 
   // let's change the default task to the one the user selected.
   taskId = e.target.offsetParent.id;
   defaultTask = alltask[taskId];
 
   todoNode = e.target.offsetParent.childNodes[3];
-  console.log(e.target.offsetParent.childNodes[3])
+  
+  if(e.target.classList.contains('delete')){
+    
+    console.log(e.target.offsetParent.id, e.target.parentElement.innerHTML)
+    e.target.parentElement.innerHTML = "";
+  }
   
   if(e.target.classList.contains('addTodobtn')){
     handleForm().showForm(todoContainer)

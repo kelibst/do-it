@@ -75,6 +75,10 @@ const Task = (name) => ({
                 node.appendChild(container);
               },
 
+              removeContent(id,){
+
+              }
+
 
             }
           }
