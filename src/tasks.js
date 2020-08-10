@@ -22,7 +22,7 @@ const Task = (name) => ({
                     <i class="fas fa-trash text-danger taskDelete delete"></i>
                   </div>
 
-                  <div id="todoTk">
+                  <div id="todoTk${ind}">
                   
                   </div>
 

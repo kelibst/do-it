@@ -4,26 +4,35 @@ import {Task, Todo, renderContent} from './tasks'
 function loadContents(){
     return {
         contents(){
+            let alltask = [];
+            let defaultTask;
+            if (localStorage.length < 1) {
+                
+
+                let today = Task("Today");
+                
+                alltask.push(today);
+                defaultTask = alltask[0]
+                //add initial todos
+               
+                defaultTask.todos.push(Todo("Buy milk", 'early in the morning', '11/02/1991','Low Priority'));
+              } else {
+                const storedlist = localStorage.getItem('alltask');
+                alltask = JSON.parse(storedlist);
+              }
 
 
-        let today = Task("Today");
-        let alltask =[];
-        alltask.push(today)
         let todoNode = renderContent().todoTk;
-
-
-        //add initial todos
-        let defaultTask = alltask[0];
-        defaultTask.todos.push(Todo("Buy milk", 'early in the morning', '11/02/1991','Low Priority'));
 
         //load the initial elements to the dom
         document.addEventListener('DOMContentLoaded', () => {
+            console.log(alltask)
             alltask.forEach(function(value,index){
             renderContent().render(renderContent().allTk, value, index);
 
-            value.todos.forEach(function(value, index){
-            console.log(index)
-            renderContent().render(renderContent().todoTk, value, index)
+            value.todos.forEach(function(newvalue, newindex){
+          
+                renderContent().render(document.getElementById(`todoTk${index}`), newvalue, newindex)
             })
             });
         });
@@ -48,7 +57,7 @@ function loadContents(){
             let title = taskForm.tasktitle.value;
             let newTask = new Task(title)
             alltask.push(newTask);
-            console.log(alltask);
+            localStorage.setItem('alltask', JSON.stringify(alltask));
             alltask.find((value, index) => {
                
             if(value === newTask){
@@ -64,7 +73,8 @@ function loadContents(){
 
             // let's change the default task to the one the user selected.
             let taskId = e.target.offsetParent.id;
-            defaultTask = alltask[taskId[4]];
+            console.log(parseInt(taskId[4]))
+            defaultTask = alltask[parseInt(taskId[4])];
           
             todoNode = e.target.offsetParent.childNodes[3];
             
@@ -74,19 +84,21 @@ function loadContents(){
              if(e.target.classList.contains('taskDelete')){
                 //filter out task if delete button is pressed
               alltask = alltask.filter(function(value, index){
-                  
-                return index != e.target.parentElement.id
+                return index != parseInt(e.path[2].id[4])
               })
+              localStorage.setItem('alltask', JSON.stringify(alltask));  
+              console.log(alltask)
              }else if(e.target.classList.contains('todoDelete')){
                 defaultTask.todos = defaultTask.todos.filter(function(value, index){
-                    return index != e.target.parentElement.id
+                    console.log(parseInt(e.path[2].id[4]))
+                    return index != parseInt(e.path[2].id[4])
                 })
+               
              }
-            
+             localStorage.setItem('alltask', JSON.stringify(alltask));
+             console.log(alltask)
                e.path[2].remove();
-               console.log("alltask",alltask)
-               console.log("todos", defaultTask.todos)
-            
+               
             }
             
             if(e.target.classList.contains('addTodobtn')){
@@ -104,10 +116,11 @@ function loadContents(){
                 let note = addTodo.note.value;
             
             
+                console.log(defaultTask)
                 let setTodo = Todo(name, description, dateofbirth, priority, note);
                 defaultTask.todos.push(setTodo)
-                console.log(defaultTask)
-                let latestTodo = [] 
+                localStorage.setItem('alltask', JSON.stringify(alltask));
+                
                defaultTask.todos.find((value, index) => {
                 if(value === setTodo){
                     renderContent().render(todoNode, value, index)
