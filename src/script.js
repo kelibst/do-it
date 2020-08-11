@@ -102,23 +102,25 @@ function loadContents() {
           e.path[2].remove();
         }
 
-        //add select option when the pen button is clicked
+        // add select option when the pen button is clicked
 
-        if(e.target.classList.contains('edit')){
-          let currentTodo = defaultTask.todos[parseInt(e.path[1].id[4], 10)]
+        if (e.target.classList.contains('edit')) {
+          const currentTodo = defaultTask.todos[parseInt(e.path[1].id[4], 10)];
           addTodo.todotitle.value = currentTodo.name;
           addTodo.tododesc.value = currentTodo.description;
           addTodo.dateofbirth.value = currentTodo.duedate;
-          
+
           addTodo.priority.value = currentTodo.priority;
           addTodo.note.value = currentTodo.value;
-          handleForm().showForm(todoContainer); 
-          
+          handleForm().showForm(todoContainer);
+          localStorage.setItem('alltask', JSON.stringify(alltask));
         }
 
         if (e.target.classList.contains('addTodobtn')) {
           handleForm().showForm(todoContainer);
         }
+
+        localStorage.setItem('alltask', JSON.stringify(alltask));
       });
 
       // add task when the button is clicked
