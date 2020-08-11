@@ -52,7 +52,7 @@ visit live [link](https://raw.githack.com/kelibst/do-it/working/dist/index.html)
 
 
 
-## Author
+## Authors
 
 👤 **Kelly Booster**
 
@@ -61,6 +61,12 @@ visit live [link](https://raw.githack.com/kelibst/do-it/working/dist/index.html)
 - Linkedin: [Kekeli (Jiresse) Dogbevi
 ](https://www.linkedin.com/in/kekeli-dogbevi-jiresse/)
 
+
+**Aremu Lucky**
+
+- Github: [@githubhandle](https://github.com/Luckyaremu)
+- Twitter: [@twitterhandle](@luckyaremu)
+- Linkedin: [linkedin]()
 
 # 🤝 Contributing
 Contributions, issues and feature requests are welcome!

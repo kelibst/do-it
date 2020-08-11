@@ -82,7 +82,7 @@ section.tasks.m-5.p-3 {
     align-items: center;
 }
 
-.delete{
+.delete,.edit{
     font-size: 1.4rem;
     cursor: pointer;
 }

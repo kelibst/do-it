@@ -41,7 +41,7 @@ function Templates(val, ind) {
                     <p class="${val.priority} text-uppercase">${val.priority}</p>
                     <p class="text-success text-uppercase">${val.duedate}</p>
                   <p class="card-text">${val.description}</p>
-                 
+                  <i class="fas fa-pen p-2 edit text-success"></i>
                 `,
 
   };
